@@ -177,3 +177,35 @@ select *  from employee_payroll
 
 alter table employee_payroll add department varchar(20) NOT NULL default'CS';
 select *  from employee_payroll
+
+
+
+-- UC9:- Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay.
+
+-- UC9.1:- Ability to extend employee_payroll table salary to have Basic Pay.
+
+EXEC sp_RENAME 'employee_payroll.salary', 'Basic_Pay', 'COLUMN';  --SQL Server use sp_rename to rename the column in the Employee_payroll table from salary to Basic_Pay.
+select *  from employee_payroll;
+
+-- UC9.2:- Ability to extend employee_payroll table salary to have Deductions.
+
+ALTER TABLE employee_payroll ADD Deductions FLOAT;
+select *  from employee_payroll;
+
+
+-- UC9.3:- Ability to extend employee_payroll table salary to have Taxable_Pay.
+
+ALTER TABLE employee_payroll ADD Taxable_Pay FLOAT;
+select *  from employee_payroll;
+
+-- UC9.4:- Ability to extend employee_payroll table salary to have Income_Tax.
+
+ALTER TABLE employee_payroll ADD Income_Tax FLOAT;
+select *  from employee_payroll;
+
+-- UC9.5:- Ability to extend employee_payroll table salary to have Net_Pay.
+
+ALTER TABLE employee_payroll ADD Net_Pay FLOAT;
+select *  from employee_payroll;
+
+sp_help employee_payroll; --sp_help is executed with no arguments, summary information of objects of all types that exist in the current database is returned.
