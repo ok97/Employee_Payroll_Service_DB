@@ -69,4 +69,19 @@ select salary from employee_payroll
 WHERE startdate BETWEEN CAST('2021-05-13'
 AS DATE) AND GETDATE();
 
+---UC6:- Ability to add Gender to Employee Payroll Table and Update the Rows to reflect the correct Employee Gender.
+-- Use payroll_service database in MSSQL Client 
+-- Use Alter Table Command to add Field gender after the name field
+-- Use Update Query to set the gender using where condition with the employee name
+-- E.g. UPDATE employee_payroll set gender = 'M' where name = 'Bill' or name = 'Charlie';
 
+--UC6.1:- Use Alter Table Command to add Field gender after the name field
+
+alter table employee_payroll add Gender varchar(1);
+select *  from employee_payroll
+
+SELECT TOP 5 * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME='employee_payroll'; --- show table information
+
+-- UC6.2:- Use Update Query to set the gender using where condition with the employee name.
+
+ UPDATE employee_payroll set Gender = 'M' where name = 'Bill' or name = 'Charlie';
