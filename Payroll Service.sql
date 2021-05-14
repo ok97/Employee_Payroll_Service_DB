@@ -85,3 +85,70 @@ SELECT TOP 5 * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME='employee_pa
 -- UC6.2:- Use Update Query to set the gender using where condition with the employee name.
 
  UPDATE employee_payroll set Gender = 'M' where name = 'Bill' or name = 'Charlie';
+
+---UC7:- Ability to find sum, average, min, max and number of male and female employees.
+-- Use payroll_service database in MSSQL Client.
+-- Use Database Function SUM, AVG, MIN, MAX, COUNT to do analysis by Male or Female.
+-- Note: You will need to use GROUP BY GENDER grouping to get the result
+-- E.g. SELECT SUM(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
+
+UPDATE employee_payroll SET Gender = 'M' WHERE id = 3;
+select * from employee_payroll
+insert into employee_payroll values('Orisa','4200','2012-10-25','F');
+select * from employee_payroll;
+
+--UC7.1:- Ability to find SUM number of male and female employees.
+
+SELECT SUM(salary) FROM employee_payroll       -- The SUM() function returns the total sum of a numeric column. 
+WHERE Gender = 'M' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+SELECT SUM(salary) FROM employee_payroll          --The SUM() function returns the total sum of a numeric column. 
+WHERE Gender = 'F' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+
+--UC7.2:- Ability to find AVG number of male and female employees.
+
+SELECT AVG(salary) FROM employee_payroll      --AVG() function returns the average value of a numeric column. 
+WHERE Gender = 'M' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+SELECT AVG(salary) FROM employee_payroll         --AVG() function returns the average value of a numeric column. 
+WHERE Gender = 'F' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+
+--UC7.3:- Ability to find MIN number of male and female employees.
+
+SELECT MIN(salary) FROM employee_payroll        --The MIN() function returns the smallest value of the selected column.
+WHERE Gender = 'M' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+SELECT MIN(salary) FROM employee_payroll         --The MIN() function returns the smallest value of the selected column.
+WHERE Gender = 'F' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+
+--UC7.4:- Ability to find MAX number of male and female employees.
+
+
+SELECT MAX(salary) FROM employee_payroll        --The MAX() function returns the largest value of the selected column.
+WHERE Gender = 'M' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+SELECT MAX(salary) FROM employee_payroll           --The MAX() function returns the largest value of the selected column.
+WHERE Gender = 'F' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+
+
+--UC7.4:- Ability to find COUNT number of male and female employees.
+
+SELECT COUNT(salary) FROM employee_payroll        --The COUNT() function returns the number of rows that matches a specified criterion.
+WHERE Gender = 'M' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+SELECT COUNT(salary) FROM employee_payroll           --The COUNT() function returns the number of rows that matches a specified criterion.
+WHERE Gender = 'F' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
