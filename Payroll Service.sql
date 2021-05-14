@@ -14,3 +14,14 @@ use Payroll_Service
 --- Understand the SQL data types to be used for the table
 --- Note: SQL Queries as case insensitive
 
+
+create Table employee_payroll
+(
+id int  NOT NULL identity(1,1) primary key,
+name varchar(20)  NOT NULL,
+salary float NOT NULL,
+start Date NOT NULL,
+);
+
+
+select * from employee_payroll
