@@ -143,7 +143,7 @@ GROUP BY Gender;   --The GROUP BY statement groups rows that have the same value
 
 
 
---UC7.4:- Ability to find COUNT number of male and female employees.
+--UC7.5:- Ability to find COUNT number of male and female employees.
 
 SELECT COUNT(salary) FROM employee_payroll        --The COUNT() function returns the number of rows that matches a specified criterion.
 WHERE Gender = 'M' 
@@ -152,3 +152,28 @@ GROUP BY Gender;   --The GROUP BY statement groups rows that have the same value
 SELECT COUNT(salary) FROM employee_payroll           --The COUNT() function returns the number of rows that matches a specified criterion.
 WHERE Gender = 'F' 
 GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+
+-- UC8:- Ability to extend employee_payroll data to store employee information like employee phone, address and department.
+-- Ensure employee department is non nullable fields.
+-- Add Default Value for address field.
+
+-- UC8.1:- Ability to extend employee_payroll data to store employee information like employee phone.
+
+alter table employee_payroll add phone bigint; 
+select *  from employee_payroll
+
+-- UC8.2:- Ability to extend employee_payroll data to store employee information like address.
+-- Add Default Value for address field.
+
+alter table employee_payroll add address varchar(20) NOT NULL default'Pune';
+select *  from employee_payroll
+
+
+
+
+-- UC8.3:- Ability to extend employee_payroll data to store employee information like department.
+-- Ensure employee department is non nullable fields.
+
+alter table employee_payroll add department varchar(20) NOT NULL default'CS';
+select *  from employee_payroll
