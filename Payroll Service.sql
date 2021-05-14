@@ -38,3 +38,9 @@ INSERT INTO employee_payroll ( name, salary,startdate)
 VALUES ('Om', '5000','2008-11-11');
 select * from employee_payroll -- Show table
 
+
+-- UC4:- Ability to retrieve all the employee payroll data that is added to payroll service database.
+-- Use payroll_service database in MSSQL Client. 
+-- Use SELECT * FROM employee_payroll to retrieve all the data from the employee_payroll table.
+
+select * from employee_payroll -- Show table
